@@ -1,3 +1,19 @@
+# Patched version of ShellCheck
+This version requires explicit opt-in of `extended-analysis`. Execute
+`shellcheck extended-analysis-default-False.sh` for an example. `cabal
+test` currently fails on this branch due to tests not having been
+updated. This avoids out-of-memory conditions:
+
+```console
+$ dmesg -T | egrep -i 'killed process'
+[Fri Feb 28 13:23:07 2025] Out of memory: Killed process 192559 (shellcheck) total-vm:1073766096kB, anon-rss:54632448kB, file-rss:1536kB, shmem-rss:0kB, UID:1000 pgtables:107440kB oom_score_adj:0
+[Fri Feb 28 13:36:58 2025] Out of memory: Killed process 204527 (shellcheck) total-vm:1073766096kB, anon-rss:55090688kB, file-rss:768kB, shmem-rss:0kB, UID:1000 pgtables:107896kB oom_score_adj:0
+```
+
+
+
+# Original README follows:
+
 [![Build Status](https://github.com/koalaman/shellcheck/actions/workflows/build.yml/badge.svg)](https://github.com/koalaman/shellcheck/actions/workflows/build.yml)
 
 
