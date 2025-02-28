@@ -200,7 +200,7 @@ makeCommentWithFix severity id code str fix =
 -- makeParameters :: CheckSpec -> Parameters
 makeParameters spec = params
   where
-    extendedAnalysis = fromMaybe True $ msum [asExtendedAnalysis spec, getExtendedAnalysisDirective root]
+    extendedAnalysis = fromMaybe False $ msum [asExtendedAnalysis spec, getExtendedAnalysisDirective root]
     params = Parameters {
         rootNode = root,
         shellType = fromMaybe (determineShell (asFallbackShell spec) root) $ asShellType spec,
